@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=1.0, initial-scale=1.0">
+	<title>Switch Basic Configuration</title>
+	<script src="script.js"></script>
+</head>
+<body>
+	Admin user:
+	<ul>
+		<li>Username: <input placeholder="admin" type="text" id="admin-user"></li>
+		<li>Privilege: <input type="number" id="admin-privilege", value="15", min="0", max="15"></li>
+		<li>
+			<select id="admin-pwd-type">
+				<option value="secret">Secret</option>
+				<option value="password">Password</option>
+			</select>:
+			<input type="password" id="admin-password", placeholder="password">
+		</li>
+	</ul>
+	Hostname: <input type="text" id="hostname" placeholder="SW1"><br>
+	Domain name: <input type="text"  id="domain" placeholder="example.com"><br>
+	Config VLAN address: <input type="text" id="vlan-addr" placeholder="192.168.1.254"><br>
+	Config VLAN mask: <input type="text" id="vlan-mask" placeholder="255.255.255.0"><br>
+	Default gateway: <input type="text" id="gateway" placeholder="192.168.1.1"><br>
+	Remote connection type: 
+	<select id="transport-input">
+		<option value="telnet">Telnet</option>	
+		<option value="ssh">SSH</option>	
+		<option value="all">All</option>	
+	</select><br><br>
+	CLI password (con 0): <input type="password" id="con-pass" placeholder="password"><br>
+	Enable password (secret): <input type="password" id="en-pass" placeholder="password"><br>
+	VTY password: <input type="password" id="vty-pass" placeholder="password">
+	<br><br>
+	<button onclick="genConfig()">Generate config script</button>
+	<br><br>
+	<code id="result"></code>
+</body>
+</html>
